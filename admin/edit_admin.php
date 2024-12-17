@@ -11,7 +11,7 @@ else {
 
         $admin_id = $_GET['edit_admin'];
 
-        $query = "select * from ADMIN where ID='$admin_id'";
+        $query = "select * from admin where ID='$admin_id'";
 
         $run_query = $MyConn->query($query);
 

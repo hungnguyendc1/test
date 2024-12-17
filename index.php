@@ -41,7 +41,33 @@ $MyConn = new MyConnect();
     }
     .p:hover {
     box-shadow: 0 0 11px rgba(33,33,33,.2); 
+    }
+    /* Hiệu ứng khi di chuột vào sản phẩm */
+    .card:hover {
+    transform: scale(1.05); /* Phóng to nhẹ */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Thêm bóng đổ */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Thêm hiệu ứng chuyển động mượt mà */
+    }
+
+    /* Hiệu ứng khi click vào sản phẩm */
+    .card:active {
+    transform: scale(0.98); /* Thu nhỏ sản phẩm khi click */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Tạo bóng đổ nhẹ khi click */
+    transition: transform 0.1s ease, box-shadow 0.1s ease; /* Thêm hiệu ứng chuyển động nhanh */
 }
+
+/* Thêm hiệu ứng khi hover vào hình ảnh sản phẩm */
+.card img:hover {
+    transform: scale(1.1); /* Phóng to hình ảnh khi hover */
+    transition: transform 0.3s ease; /* Thêm hiệu ứng chuyển động mượt mà */
+}
+
+/* Thêm hiệu ứng khi hover vào tên sản phẩm */
+.card-title:hover {
+    color: #FF6347; /* Thay đổi màu chữ khi hover vào tên sản phẩm */
+    transition: color 0.3s ease; /* Thêm hiệu ứng chuyển màu */
+}
+
   </style>
 </head>
 <body>
@@ -61,7 +87,7 @@ $MyConn = new MyConnect();
               <a class="nav-link" href="product.php">Sản Phẩm</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Giới Thiệu</a>
+              <a class="nav-link" href="introduce.php">Giới Thiệu</a>
             </li>
             
           </ul>

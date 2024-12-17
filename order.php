@@ -12,7 +12,7 @@
             $total += (int)$product["price"]*$product["quantity"];
         }
 
-       
+        //random bill id 
 
         $genID = $userID.date("mdHs");
 

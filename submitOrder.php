@@ -80,7 +80,7 @@ $getAddress = $row['DIACHI'];
               <a class="nav-link" href="product.php">Sản Phẩm</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Giới Thiệu</a>
+              <a class="nav-link" href="introduce.php">Giới Thiệu</a>
             </li>
             
           </ul>

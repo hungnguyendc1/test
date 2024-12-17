@@ -69,7 +69,7 @@ if (isset($_GET['productID'])) {
               <a class="nav-link nl" href="product.php">Sản Phẩm</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nl" href="#">Giới Thiệu</a>
+              <a class="nav-link nl" href="introduce.php">Giới Thiệu</a>
             </li>
 
             

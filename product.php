@@ -67,11 +67,13 @@ $resultMan = $MyConn->query($queryMan);
     .p-container {
         margin-left: 3rem !important;
     }
+    
+
     </style>
 </head>
 
 <body>
-   
+    <!-- Start nav -->
     <nav class="navbar navbar-expand-sm bg-secondary navbar-dark sticky-top shadow-lg py-2">
         <div class="container">
             <a class="navbar-brand" href="index.php"><span class="text-warning">FlipMarttv</span></a>
@@ -88,7 +90,7 @@ $resultMan = $MyConn->query($queryMan);
               <a class="nav-link" href="product.php">Sản Phẩm</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Giới Thiệu</a>
+              <a class="nav-link" href="introduce.php">Giới Thiệu</a>
             </li>
             
           </ul>
@@ -127,7 +129,7 @@ $resultMan = $MyConn->query($queryMan);
           </form>
         </div>        
     </nav>
-   
+    <!-- End nav-->
 
     <div aria-live="polite" aria-atomic="true" style="bottom: 0; right: 0; z-index: 1200;" class="position-fixed">
         <div class="toast bg-success font-weight-bold p-2 text-light">
@@ -137,7 +139,7 @@ $resultMan = $MyConn->query($queryMan);
         </div>
     </div>
 
-    
+    <!-- Main content Product page -->
     <div class="container-fluid my-5">
         <div class="row ml-4">
             <div class="col-md-3">
@@ -164,9 +166,9 @@ $resultMan = $MyConn->query($queryMan);
                                 <?php } ?>
                             </ul>
                         </div>
-                    </div> 
+                    </div> <!-- close card -->
                 </div>
-               
+                <!-- close row -->
 
                 <div class="row mt-5">
                     <div class="card border-0 mt-4">
@@ -188,7 +190,7 @@ $resultMan = $MyConn->query($queryMan);
                         </div>
                     </div>
                 </div>
-                
+                <!-- close row -->
                 <div class="row">
                     <div class="card border-0">
                         <div class="card-body p2">
@@ -210,7 +212,7 @@ $resultMan = $MyConn->query($queryMan);
                     </div>
                 </div>
             </div>
-            
+            <!-- close first col -->
             <div class="col-md-9">
                 <div class="row mt-0 card-deck mr-4">
                     <?php 
@@ -252,7 +254,7 @@ $resultMan = $MyConn->query($queryMan);
                                     <img src="<?php echo "admin/product_images/".$getP['HINHANH_SP'] ?>"
                                         class="card-img-top h-100 img-reponsive">
                                 </a>
-                            </div> 
+                            </div> <!-- close card header -->
                             <div class="card-body p-0">
                                 <a href="detail.php?productID=<?php echo $getP['MA_SP'] ?>"
                                     class="text-decoration-none text-dark">
@@ -268,11 +270,11 @@ $resultMan = $MyConn->query($queryMan);
                                     class="btn btn-danger w-100 mt-auto text-white">Thêm Vào Giỏ Hàng</button>
 
                             </div>
-                            
-                        </div> 
-                    </div> 
+                            <!-- close card body -->
+                        </div> <!-- close card -->
+                    </div> <!-- close col -->
                     <?php } ?>
-                </div> 
+                </div> <!-- close row -->
                 <div class="row mr-4">
                     <ul class="pagination mt-3 mr-3 ml-auto">
                         <?php 
@@ -304,11 +306,13 @@ $resultMan = $MyConn->query($queryMan);
                         </li>
                     </ul>
                 </div>
-            </div> 
-        </div>
-    </div> 
+            </div> <!-- close col -->
+        </div><!-- close big row -->
+    </div> <!-- close container -->
 
-    
+    <!-- End content -->
+
+    <!-- Footer Cố định -->
     <footer class="bg-secondary">
         <div class="container-fuild text-light">
             <div class="row card-deck pt-3">

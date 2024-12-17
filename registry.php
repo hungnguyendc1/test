@@ -9,6 +9,7 @@
         $C_passwd = $_POST['password'];
         $C_addr = $_POST['address'];
         $C_cont = $_POST['contact'];
+       
 
         $query = "INSERT INTO KH(TEN_KH, EMAIL, MATKHAU, DIACHI, DIENTHOAI) VALUES ('$C_name','$C_email','$C_passwd','$C_addr','$C_cont')";
 

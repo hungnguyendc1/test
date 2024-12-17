@@ -31,7 +31,7 @@ else {
                         </thead>
                         <tbody>
                         <?php 
-                        $getAdminQry = "select * from ADMIN";
+                        $getAdminQry = "select * from admin";
 
                         $result = $MyConn->query($getAdminQry);
 

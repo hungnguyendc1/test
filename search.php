@@ -93,7 +93,7 @@ else {
               <a class="nav-link" href="product.php">Sản Phẩm</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Giới Thiệu</a>
+              <a class="nav-link" href="introduce.php">Giới Thiệu</a>
             </li>
 
           </ul>
@@ -226,7 +226,7 @@ else {
                         <a href="detail.php?productID=<?php echo $getP['MA_SP'] ?>" class="text-decoration-none text-dark">
                             <img src="<?php echo "admin/product_images/".$getP['HINHANH_SP'] ?>" class="card-img-top h-100 img-reponsive">
                         </a>
-                        </div>
+                        </div> <!-- close card header -->
                         <div class="card-body p-0">
                         <a href="detail.php?productID=<?php echo $getP['MA_SP'] ?>" class="text-decoration-none text-dark">
                             <div class="card-title text-center mt-4">
@@ -239,9 +239,9 @@ else {
                             <button id="myBtn" onclick="addCart('<?php echo $getP['MA_SP'] ?>')" class="btn btn-warning w-100 mt-auto text-white"><i class="fas fa-cart-plus"></i> Thêm Vào Giỏ</button>
 
                         </div>
-                       
-                    </div> 
-            </div> 
+                        <!-- close card body -->
+                    </div> <!-- close card -->
+            </div> <!-- close col -->
             <?php } ?>
 
         </div>

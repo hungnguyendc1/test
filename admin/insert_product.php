@@ -99,7 +99,7 @@ else {
 
                     <div class="form-group">
                         <div class="row">
-                            <label class="control-label col-sm-3 text-right mt-2">Giá Thành:</label>
+                            <label class="control-label col-sm-3 text-right mt-2">Giá :</label>
                             <div class="col-sm-6">
                             <input type="number" name="product_price" class="form-control" required>
                             </div>
@@ -108,7 +108,7 @@ else {
 
                     <div class="form-group">
                         <div class="row">
-                            <label class="control-label col-sm-3 text-right mt-2">Miêu Tả Sản Phẩm:</label>
+                            <label class="control-label col-sm-3 text-right mt-2">Mô Tả Sản Phẩm:</label>
                             <div class="col-sm-6">
                             <textarea name="product_desc" class="form-control" rows="10"></textarea>
                             </div>

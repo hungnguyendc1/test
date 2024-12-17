@@ -3,24 +3,8 @@
 session_start();
 
 include("admin/includes/database.php");
-
-if(!isset($_SESSION['cart']) || !isset($_SESSION['user_id'])) {
-    echo "<script>window.open('cart.php','_self')</script>";
-}
-else 
 $MyConn = new MyConnect();
 
-$userID = $_SESSION['user_id'];
-
-
-
-$getUser = "SELECT * FROM KH WHERE MA_KH='$userID'";
-
-
-
-$execute = $MyConn->query($getUser);
-
-$result = mysqli_fetch_array($execute);
 
 ?>
 <!DOCTYPE html>
@@ -39,7 +23,6 @@ $result = mysqli_fetch_array($execute);
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
   <style>
       .nav-link {
           color: white !important;
@@ -56,18 +39,13 @@ $result = mysqli_fetch_array($execute);
         border-radius: 50%;
         font-size: 12px;
     }
-    enav:disabled {
-        color: black;
-    }
-    .nav-tabs {
-        border-bottom: 1px solid #dee2e6;
-    }
-    button:focus {outline:0;}
-
+    .p:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
   </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-secondary  bg-gradient bg-dark sticky-top shadow-lg py-2">
+    <nav class="navbar navbar-expand-sm bg-secondary navbar-dark sticky-top shadow-lg py-2">
         <div class="container">
             <a class="navbar-brand" href="index.php"><span class="text-warning">FlipMarttv</span></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,7 +63,6 @@ $result = mysqli_fetch_array($execute);
             <li class="nav-item">
               <a class="nav-link" href="introduce.php">Giới Thiệu</a>
             </li>
-
             
           </ul>
 
@@ -110,7 +87,7 @@ $result = mysqli_fetch_array($execute);
                 </div></i>
             </a>
             <?php
-            if(!isset($_SESSION['user_id'])) {
+            if(!isset($_SESSION['user_email'])) {
 
                echo  "<a class='btn my-sm-0 border-0' data-toggle='modal' data-target='#loginModal'><i class='fas fa-user text-light'></i></a>";
 
@@ -124,56 +101,29 @@ $result = mysqli_fetch_array($execute);
         </div>        
     </nav>
 
+
+    <div class="container my-5">
+    <!-- Phần Giới Thiệu -->
+    <h1 class="section-header">Lịch Sử Của FlipMarttv</h1>
+    <p>
+         - FlipMarttv là một thương hiệu chuyên kinh doanh quần áo thời trang, được thành lập từ năm 2015. Chúng tôi bắt đầu từ một cửa hàng nhỏ tại TP. Hồ Chí Minh và không ngừng phát triển nhờ sự ủng hộ của quý khách hàng.  
+    </p>
+    <p>
+         - Với mục tiêu mang đến những sản phẩm thời trang chất lượng, hiện đại và giá cả hợp lý, FlipMarttv cam kết đáp ứng mọi nhu cầu mua sắm của bạn. Hãy ghé thăm cửa hàng hoặc mua sắm trực tuyến để trải nghiệm sự khác biệt!
+    </p>
+    <p?>
+        - Mang đến sự thoải mái ,với những sợi vãi conton 100% ,mang đến sự thoải mái cho người dùng .
+    </p>
     
-    <div class="container pb-5 position-relative pt-2">
-            <div class="mt-5 d-block ">
-                <ul class="nav nav-pills nav-fill border-0 rounded-0">
-                    <li class="flex-grow-1 text-center nav-item">
-                        <a href="" class="m-0 px-0 py-3 bg-success text-muted nav-link disabled font-weight-bold rounded-0 nav-link border-right">Giỏ Hàng</a>
-                    </li>
-                    <li class="flex-grow-1 text-center nav-item">
-                        <a class="m-0 px-0 py-3 bg-warning text-light nav-link disabled active  font-weight-bold rounded-0 nav-link border-right">Vận Chuyển</a>
-                    </li>
-                    <li class="flex-grow-1 text-center nav-item">
-                        <a class="m-0 px-0 py-3 bg-warning text-muted nav-link disabled  font-weight-bold rounded-0 nav-link border-right">Thanh Toán</a>
-                    </li>
-                    <li class="flex-grow-1 text-center nav-item">
-                        <a class="m-0 px-0 py-3 bg-warning text-muted nav-link disabled  font-weight-bold rounded-0 nav-link">Xác Nhận Đơn Hàng</a>
-                    </li>
-                </ul>
-            </div>
-
-
-            <div class="my-5 d-block">
-                <form action="POST">
-                    <div class="row">
-                        <div class="col-lg-6 mx-auto">
-                        <form method="get">
-                            <div class="form-group">
-                                <label for="customerName">Họ và tên</label>
-                                <input type="text" class="form-control" placeholder="Điền họ và tên khách hàng" required value="<?php echo $result['TEN_KH']; ?>">
-                            </div>
-                            <div class="form-group">
-                                <label for="customerEmail">Email</label>
-                                <input type="text" class="form-control" placeholder="Điền Email khách hàng" required value="<?php echo $result['EMAIL']; ?>">
-                            </div>
-                            <div class="form-group">
-                                <label for="customerContact">Số Điện Thoại</label>
-                                <input type="text" class="form-control" placeholder="Điền số điện thoại khách hàng" required value="<?php echo $result['DIENTHOAI']; ?>">
-                            </div>
-                            <div class="form-group">
-                                <label for="customerAddress">Địa Chỉ</label>
-                                <input type="text" class="form-control" placeholder="Điền địa chỉ khách hàng" required value="<?php echo $result['DIACHI']; ?>">
-                            </div>
-
-                            <a href="payment.php" type="submit" class="mt-4 btn btn-block btn-danger btn-lg font-weight-bold" name="move">Xác nhận thông tin</a>
-                            </form>
-                        </div>
-                    </div>
-                </form>
-            </div>
-    </div>
+    <!-- Google Map -->
+    <h2 class="section-header">Địa Chỉ Cửa Hàng</h2>
+    <p>Địa chỉ: 180 Cao Lỗ, Phường 3, Quận 8, Thành phố Hồ Chí Minh</p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.292201486988!2d106.67980457406988!3d10.759501159507645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f1b632ad9fd%3A0xc708f6b44a2df3af!2zMjczIMSQLiBBbiBExrDGoW5nIFbGsMahbmcsIFBoxrDhu51uZyAzLCBRdeG6rW4gNSwgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e1!3m2!1svi!2s!4v1732800556589!5m2!1svi!2s" 
+        width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
     
+</div>
+
     <footer class="bg-secondary">
         <div class="container-fuild text-light">
             <div class="row card-deck pt-3">
@@ -181,7 +131,7 @@ $result = mysqli_fetch_array($execute);
                     <div class="card border-0 bg-secondary ml-4">
                         <div class="card-header bg-secondary border-0"><h4>ĐỊA CHỈ</h4></div>
                         <div class="card-body border-0">
-                            <p>180 Cao Lỗ, Phường 3, Quận 5, Thành phố Hồ Chí Minh</p>
+                            <p>180 Cao Lỗ, Phường 3, Quận 8, Thành phố Hồ Chí Minh</p>
                         </div>
                     </div>
                 </div>
@@ -200,7 +150,7 @@ $result = mysqli_fetch_array($execute);
                         <div class="card-header bg-secondary border-0"><h4>LIÊN HỆ</h4></div>
                         <div class="card-body border-0">
                             <p><i class="fas fa-phone-alt mr-2"></i>SĐT: 0123456789 <br>
-                            <i class="fab fa-facebook"></i> Facebook: Hùng Nguyễn <br>
+                            <i class="fab fa-facebook"></i> Facebook: Hùng Nguyễn Shop <br>
                             <i class="fab fa-instagram"></i> Instagram: hungnguyen.my
                         </p>
                         </div>
@@ -209,9 +159,4 @@ $result = mysqli_fetch_array($execute);
             </div>
         </div>
     </footer>
-
-
-    <?php include("login_registry_modal.php"); ?>
- 
-</body>
-</html>
+    

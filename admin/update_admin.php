@@ -10,7 +10,7 @@ else {
     
         $admin_id = $_SESSION['admin_email'];
 
-        $query = "select * from ADMIN where Email='$admin_id'";
+        $query = "select * from admin where Email='$admin_id'";
 
         $run_query = $MyConn->query($query);
 
